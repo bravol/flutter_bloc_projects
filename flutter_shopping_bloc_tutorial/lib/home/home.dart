@@ -35,13 +35,19 @@ class _HomePageState extends State<HomePage> {
               context, MaterialPageRoute(builder: (context) => const Cart()));
         } else if (state is HomeNavigateToWishlistPageActionState) {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => const WishList()));
+              .push(MaterialPageRoute(builder: (context) => const Wishlist()));
         } else if (state is HomeProductItemCartedState) {
           ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Item added to cart')));
         } else if (state is HomeProductItemWishlistedState) {
           ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Item added to wishlist')));
+        } else if (state is HomeProductItemAlreadyInCart) {
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Item already in cart')));
+        } else if (state is HomeProductItemAlreadyInWishlist) {
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Item already in wishlist')));
         }
       },
       builder: (context, state) {

@@ -27,3 +27,7 @@ class HomeNavigateToCartPageActionState extends HomeActionState {}
 class HomeProductItemCartedState extends HomeActionState {}
 
 class HomeProductItemWishlistedState extends HomeActionState {}
+
+class HomeProductItemAlreadyInCart extends HomeActionState {}
+
+class HomeProductItemAlreadyInWishlist extends HomeActionState {}

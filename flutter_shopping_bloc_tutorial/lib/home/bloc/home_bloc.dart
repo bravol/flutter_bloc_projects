@@ -38,16 +38,28 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   FutureOr<void> _homeProductCartButtonEvent(
       HomeProductCartButtonEvent event, Emitter<HomeState> emit) {
     print('Cart clicked');
-    cartItems.add(event.clickedProduct);
-    emit(HomeProductItemCartedState());
+
+// if the item already exists in cart
+    if (cartItems.contains(event.clickedProduct)) {
+      emit(HomeProductItemAlreadyInCart());
+    } else {
+      cartItems.add(event.clickedProduct);
+      emit(HomeProductItemCartedState());
+    }
   }
 
 //favorite function
   FutureOr<void> _homeProductWishListButtonEvent(
       HomeProductWishListButtonEvent event, Emitter<HomeState> emit) {
     print('Wishlist favorites clicked');
-    wishlistItems.add(event.clickedProduct);
-    emit(HomeProductItemWishlistedState());
+
+    // if the item already exists in cart
+    if (wishlistItems.contains(event.clickedProduct)) {
+      emit(HomeProductItemAlreadyInWishlist());
+    } else {
+      wishlistItems.add(event.clickedProduct);
+      emit(HomeProductItemWishlistedState());
+    }
   }
 
 //navigating to wish list page
