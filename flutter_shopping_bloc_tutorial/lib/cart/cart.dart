@@ -5,6 +5,15 @@ class Cart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: Colors.teal,
+        title: const Text(
+          'Cart Items',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+    );
   }
 }
